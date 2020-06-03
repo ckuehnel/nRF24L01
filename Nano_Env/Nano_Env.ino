@@ -1,7 +1,10 @@
 /*
-    ENV Unit connected to Arduino Nano via Grove I2C Connector
-    
-*/
+ * File Nano_Env.ino
+ * 
+ * M5Stack ENV Unit connected to Arduino Nano via Grove I2C Connector
+ * 
+ * Claus Kühnel 2020-06-03 info@ckuehnel.ch
+ */
 
 #include "DHT12.h"
 #include <Wire.h> //The DHT12 uses I2C comunication.
