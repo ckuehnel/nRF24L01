@@ -1,6 +1,7 @@
 /*
- * nRF24L01 Peer-to-Peer Test
+ * File: Nano_nRF24L01_Tx.ino
  * 
+ * nRF24L01 Peer-to-Peer Test
  * based on Arduino Wireless Communication Tutorial
  * by Dejan Nedelkovski, www.HowToMechatronics.com
  * Used Library: TMRh20/RF24, https://github.com/tmrh20/RF24/
@@ -28,10 +29,9 @@ void setup()
   radio.begin();
   radio.setChannel(channel);
   radio.setDataRate(RF24_250KBPS); // low data rate for higher range
-  radio.openWritingPipe(address);
   radio.setPALevel(RF24_PA_MAX);
-  radio.powerUp();
   radio.stopListening();
+  radio.openWritingPipe(address);
   Serial.println("done.");
   Serial.print("Ready to transmit messages on channel "); 
   Serial.println(radio.getChannel());

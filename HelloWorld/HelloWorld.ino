@@ -20,7 +20,8 @@
 //#define BOARD "Arduino Yun"
 //#define BOARD "M5StickC"
 //#define BOARD "Arduino M0"
-#define BOARD "Arduino Nano"
+//#define BOARD "Arduino Nano"
+#define BOARD "NodeMCU"
 
 // int LED_BUILTIN = 10; // uncomment if LED_BUILIN is not defined
 
