@@ -1,7 +1,7 @@
 /*
- * File Nano_nRF24L01_02.ino
+ * File Nano_nRF24L01_013.ino
  * 
- * Node02 in nRF24L01 network
+ * Node013 in nRF24L01 network
  * based on Arduino Wireless Network - Multiple NRF24L01 Tutorial
  * by Dejan, www.HowToMechatronics.com
  * used Libraries
@@ -43,6 +43,7 @@ void setup()
 void loop() 
 {
   network.update();
+  
   //===== Sending =====//
   unsigned long now = millis();
   if (now - last_sent >= interval)    // If it's time to send a data, send it!
@@ -52,6 +53,7 @@ void loop()
     Serial.print("Transmit "); Serial.print(count); Serial.println(" to Base 00");
     RF24NetworkHeader header(master00);   // (Address where the data is going)
     bool ok = network.write(header, &count, sizeof(count)); // Send the data
+    if (!ok) Serial.println("Transmission failed");
     count++;
   }
 }

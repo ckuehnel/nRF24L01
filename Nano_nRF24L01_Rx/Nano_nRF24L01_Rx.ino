@@ -11,7 +11,8 @@
 #include <nRF24L01.h>
 #include <RF24.h>
 
-RF24 radio(7, 8); // CE, CSN
+RF24 radio(7, 8); // CE, CSN  // Arduino Nano
+//RF24 radio(D1, D2); // CE, CSN  // NodeMCU
 
 const byte address[6] = "00001";
 const byte channel = 4;
@@ -20,7 +21,7 @@ void setup()
 {
   Serial.begin(115200);
   delay(1000); // wait for Serial Monitor
-  Serial.print("Initializing Radio...");
+  Serial.print("\nInitializing Radio...");
   radio.begin();
   radio.setChannel(channel);
   radio.setDataRate(RF24_250KBPS); // low data rate for higher range

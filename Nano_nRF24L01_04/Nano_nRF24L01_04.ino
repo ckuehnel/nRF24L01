@@ -1,7 +1,7 @@
 /*
- * File Nano_nRF24L01_01.ino
+ * File Nano_nRF24L01_04.ino
  * 
- * Node01 in nRF24L01 network
+ * Node04 in nRF24L01 network
  * based on Arduino Wireless Network - Multiple NRF24L01 Tutorial
  * by Dejan, www.HowToMechatronics.com
  * used Libraries
@@ -10,19 +10,18 @@
  * 
  * Claus Kühnel 2020-06-04 info@ckuehnel.ch
  */
-
-#include <RF24Network.h>
 #include <RF24.h>
+#include <RF24Network.h>
 #include <SPI.h>
 
-RF24 radio(7, 8);                // nRF24L01 (CE,CSN)
+RF24 radio(7, 8);                 // CE, CSN
 RF24Network network(radio);       // Include the radio in the network
 
-const uint16_t this_node = 01;    // Address of our node in Octal format ( 04,031, etc)
+const uint16_t this_node = 04;    // Address of our node in Octal format ( 04,031, etc)
 const uint16_t master00  = 00;    // Address of the other node in Octal format
 const byte ch = 4;
 
-const unsigned long interval = 1000;  //ms  // How often to send data to the other unit
+const unsigned long interval = 2000;  //ms  // How often to send data to the other unit
 unsigned long last_sent;            // When did we last send?
 unsigned long count = 0;
 
@@ -44,6 +43,7 @@ void setup()
 void loop() 
 {
   network.update();
+  
   //===== Sending =====//
   unsigned long now = millis();
   if (now - last_sent >= interval)    // If it's time to send a data, send it!

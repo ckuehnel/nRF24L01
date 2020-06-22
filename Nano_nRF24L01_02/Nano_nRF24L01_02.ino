@@ -52,6 +52,7 @@ void loop()
     Serial.print("Transmit "); Serial.print(count); Serial.println(" to Base 00");
     RF24NetworkHeader header(master00);   // (Address where the data is going)
     bool ok = network.write(header, &count, sizeof(count)); // Send the data
+    if (!ok) Serial.println("Transmission failed");
     count++;
   }
 }

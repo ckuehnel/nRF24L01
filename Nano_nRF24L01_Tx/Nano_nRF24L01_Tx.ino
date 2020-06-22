@@ -15,7 +15,7 @@ RF24 radio(7, 8); // CE, CSN
 
 const byte address[6] = "00001";
 const byte channel = 4;
-const uint16_t Periode = 5000;
+const uint16_t Periode = 2000;
 unsigned long previousMillis;
 unsigned int count = 0;
 char buffer[10];

@@ -21,6 +21,7 @@ const uint16_t this_node = 00;    // Address of this node in Octal format
 const uint16_t node01    = 01;    // Address of the other nodes in Octal format
 const uint16_t node02    = 02;
 const uint16_t node03    = 03;
+const uint16_t node04    = 04;    // for test purposes only
 const uint16_t node013   = 013;
 const uint16_t node023   = 023;
 
@@ -52,13 +53,30 @@ void loop()
     RF24NetworkHeader header;
     unsigned long incomingData;
     network.read(header, &incomingData, sizeof(incomingData)); // Read the incoming data
-    if (header.from_node == 01) 
+    //Serial.print("Message from Node "); Serial.println(header.from_node);
+    if (header.from_node == node01) 
     {    // If data comes from Node 01
       Serial.print("Received from Node 01: "); Serial.println(incomingData);
     }
-    if (header.from_node == 02) 
+    if (header.from_node == node02) 
     {    // If data comes from Node 02
       Serial.print("Received from Node 02: "); Serial.println(incomingData);
+    }
+    if (header.from_node == node03) 
+    {    // If data comes from Node 03
+      Serial.print("Received from Node 03: "); Serial.println(incomingData);
+    }
+    if (header.from_node == node04) 
+    {    // If data comes from Node 04
+      Serial.print("Received from Node 04: "); Serial.println(incomingData);
+    }
+    if (header.from_node == node013) 
+    {    // If data comes from Node 013
+      Serial.print("Received from Node 013: "); Serial.println(incomingData);
+    }
+    if (header.from_node == node023) 
+    {    // If data comes from Node 023
+      Serial.print("Received from Node 023: "); Serial.println(incomingData);
     }
   }
 }
